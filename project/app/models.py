@@ -18,3 +18,4 @@ class Item(models.Model):
     location = models.CharField(max_length=128, null=False, blank=False)
     description = models.CharField(max_length=2048, null=False, blank=False)
 
+class User(models.Model)
