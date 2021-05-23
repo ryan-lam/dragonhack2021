@@ -96,6 +96,9 @@ def item_code(request, code):
 	item = Item.objects.get(code=code)
 	images = Image.objects.filter(code=code)
 
+	print(item)
+	print(images)
+
 	return render(request, "item_code.HTML", {
 		"item":item, "images":images
 		})
