@@ -17,7 +17,7 @@
 	<main>
 		<h1 class="bold" style="text-align: center; margin-top: 20px;">{{ item.title }}</h1>
 		<div style="height: 30px;"></div>
-		<div style="display: flex; flex-direction: row; justify-content: center;">
+		<div style="display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap">
 			{% for image in images%}
 			<div style="width: 400px; height: 250px; background-image: url({{ image.image.url }}); background-size: cover;"></div>
 			
