@@ -1,16 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django import session
+from .models import Item, User
+from django.urls import reverse
+# from .models import Item, User, Image
 import random
+import string
 
 def generate_code():
 	''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(12))
 
 
 # Create your views here.
-
+# Index page
 def index(request):
 	return render(request, "index.HTML")
+
+def signin(request):
+	if request.method == "POST":
+		username = request.POST["username"]
+		password = request.POST["password"]
+
+		if User.objects.filter(username=username, password=password).exists():
+			user = User.objects.get(username=username, password=password)
+			request.session["username"] = user.username
+			request.session["name"] = user.name
+			return HttpResponseRedirect(reverse(test))
+
+	else:
+		return render(request, "index.HTML")
+
+
 
 def marketplace(request):
 	items = Item.objects.all.filter(status=True)
@@ -54,3 +73,5 @@ def logout(request):
 	request.session.flush()
 	return HttpResponseRedirect(reverse(index))
 
+def test(request):
+	return render(request, "test.HTML")
