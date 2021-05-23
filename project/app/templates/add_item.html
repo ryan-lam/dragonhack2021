@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../static/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<title>Second Hand</title>
+	<title>2nd Hand</title>
 </head>
 <body>
 	<nav class="sidebar" >
-		<a class="bold" style="color: white; position: absolute; top: 20px; text-decoration: none; display: block;" href="marketplace">2nd Hand</a>
+		<a class="bold" style="color: white; position: absolute; top: 20px; text-decoration: none; display: block;" href="{% url 'marketplace' %}">2nd Hand</a>
 		<button class="sidebuttons" style="top: 80px;"><p style="margin-left: 30px; padding-top: 15px;">Add</p></button>
-		<button class="sidebuttons" style="top: 130px;"><p style="margin-left: 30px; padding-top: 15px;">Request</p></button>
-		<a href="/" class="sidebuttons" style="bottom: 20px; position: absolute; display: block; text-decoration: none;"><p style="margin-left: 30px; padding-top: 15px;">Logout</p></a>
+
+		<a href="{% url 'logout' %}" class="sidebuttons" style="bottom: 20px; position: absolute; display: block; text-decoration: none;"><p style="margin-left: 30px; padding-top: 15px;">Logout</p></a>
 	</nav>
 	<main>
 		<h1 class="bold" style="color: black; text-align: center; margin: auto; margin-top: 20px;">Add an item!</h1>
