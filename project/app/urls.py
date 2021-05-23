@@ -14,6 +14,7 @@ urlpatterns = [
     path("add_item_submit", views.add_item_submit, name="add_item_submit"),
     path("add_item", views.add_item, name="add_item"),
     path("item_code/<str:code>/", views.item_code, name="item_code"),
+    path("mypostings", views.mypostings, name="mypostings"),
 
 
     # TESTING ONLY

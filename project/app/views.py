@@ -11,7 +11,7 @@ import string
 def generate_code():
 	return ''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(12))
 
-
+############################################################3
 
 
 
@@ -102,6 +102,44 @@ def item_code(request, code):
 	return render(request, "item_code.HTML", {
 		"item":item, "images":images
 		})
+
+def mypostings(request):
+	username = request.session["username"]
+
+	itemdb = Item.objects.filter(status=True, poster=username)
+	codes = []
+
+	items = []
+	for item in itemdb:
+		if item.code not in items:
+			items.append(item)
+		else:
+			pass
+
+	db = []
+	for item in itemdb:
+		code = item.code
+		img = Image.objects.filter(code=code).first()
+		db.append([item, img])
+	print(db)
+
+	images = Image.objects.values("code").distinct()
+	n = range(len(items))
+	imgdb = Image.objects.all()
+	print(imgdb)
+
+	return render(request, "mypostings.HTML", {
+		"items":items, "images":images, "n":n, "imgdb":imgdb, "db":db
+		})
+
+
+
+
+
+
+
+
+
 
 
 
