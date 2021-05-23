@@ -21,14 +21,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    float: left;
 }
 
 .bold{
     font-weight: 900;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
-    position: absolute;
-    top: 20px;
 
 }
 
@@ -38,11 +37,43 @@
     color: white;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
-    text-align:center;
+    text-align:left;
+
     background-color: transparent;
+    
+    position: absolute;
 }
 
 .sidebuttons:hover{
     background-color: #404040;
     cursor: pointer;
+}
+
+main{
+    width: 80%;
+    float: right;
+    overflow: scroll;
+    height: 100vh;
+
+}
+
+.itemslist{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 31.3% 31.3% 31.3%;
+    grid-auto-rows: 250px;
+    /* grid-template-rows: 250px 250px 200px 200px; */
+    column-gap: 2%;
+    row-gap: 20px;
+}
+
+.items{
+  
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+
+    border: solid 2px #e6e6e6;
 }
