@@ -14,4 +14,5 @@ urlpatterns = [
 
     # TESTING ONLY
     path("test", views.test, name="test"),
+    path("add_image", views.add_image, name="add_image"),
 ]
