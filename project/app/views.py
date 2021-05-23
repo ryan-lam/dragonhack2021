@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Item, User
+# from .models import Item, User
+from .models import Item, User, Image
 from django.urls import reverse
-# from .models import Item, User, Image
 import random
 import string
 
