@@ -18,7 +18,7 @@
 
 			{% for i in db %}
 				<a href="/item_code/{{ i.0.code }}" class="items" style="background-image: url({{ i.1.image.url }}); background-size: cover; position: relative;">
-					<p style="text-align: center; font-size: 20px; padding-top: 10px; padding-bottom: 10px; font-weight: 900; font-family: Arial; background-color: rgba(255, 255, 255, 0.5); bottom: 0; position: absolute; width: 100%;">{{ i.0.title }}</p>
+					<p style="text-align: center; font-size: 20px; padding-top: 10px; padding-bottom: 10px; font-weight: 900; font-family: Arial; background-color: rgba(255, 255, 255, 0.5); bottom: 0; position: absolute; width: 100%; color: black;">{{ i.0.title }}</p>
 					<!-- <img src="{{ i.1.image.url }}" style="display: block; margin: auto; margin-top: 5px;" /> -->
 				</a>
 				
