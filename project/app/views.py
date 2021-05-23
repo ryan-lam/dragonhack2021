@@ -71,23 +71,33 @@ def marketplace(request):
 
 
 
-# Done (webpage)
+# Add item webpage
 def add_item(request):
 	if "username" in request.session:
 		return render(request, "add_item.HTML")
 	else:
 		return HttpResponseRedirect(reverse(index))
 
-# Done (function)
+# Add item (to db) function
 def add_item_submit(request):
 	if request.method == "POST":
+		data = request.POST
+		code = generate_code()
+		print("data:", data)
+		print(code)
+
 		poster = request.session["username"]
 		title = request.POST["title"]
 		condition = request.POST["title"]
 		location = request.POST["location"]
 		description = request.POST["description"]
+		images = request.FILES.getlist("images")
 
-		new_item = Item(poster=poster, title=title, condition=condition, location=location, description=description)
+		for image in images:
+			print("image:", image)
+			image = Image.objects.create(code=code, image=image)
+
+		new_item = Item(poster=poster, code=code, title=title, condition=condition, location=location, description=description)
 		new_item.save()
 
 		return HttpResponseRedirect(reverse(marketplace), {
@@ -98,16 +108,19 @@ def add_item_submit(request):
 		return HttpResponseRedirect(reverse(add_item))
 
 
-
+# Logout function
 def logout(request):
 	request.session.flush()
 	return HttpResponseRedirect(reverse(index))
 
+
+######################### Testing stuff #########################
+
+# Testing function
 def test(request):
 	return render(request, "test.HTML")
 
-
-
+# add image testing function
 def add_image(request):
 
 	if request.method == "POST":
