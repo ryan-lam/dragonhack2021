@@ -23,7 +23,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-
+:root{
+	--primary-colour: #FF4B2B;
+	--secondary-colour:#FF416C;
+}
 
 * {
 	box-sizing: border-box;

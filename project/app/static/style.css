@@ -1,4 +1,3 @@
-@import url("index.css");
 
 :root{
 	--primary-colour: #FF4B2B;
@@ -6,5 +5,7 @@
 }
 
 nav{
-    
+    width: 20%;
+    background-color: #292929;
+    height: 100vh;
 }
