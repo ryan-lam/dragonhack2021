@@ -3,14 +3,22 @@ from django.http import HttpResponse, HttpResponseRedirect
 # from .models import Item, User
 from .models import Item, User, Image
 from django.urls import reverse
+from django import forms
 import random
 import string
 
+# Generate random code
 def generate_code():
 	''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(12))
 
+class ImageForm(forms.Form):
+    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
-# Create your views here.
+
+
+
+
+
 # Index page
 def index(request):
 	return render(request, "index.HTML")
@@ -33,6 +41,7 @@ def signin(request):
 	else:
 		return render(request, "index.HTML")
 
+# Function to sign up
 def signup(request):
 	if request.method == "POST":
 		username = request.POST["username"]
@@ -65,15 +74,14 @@ def marketplace(request):
 
 
 
-# Done
+# Done (webpage)
 def add_item(request):
 	if "username" in request.session:
 		return render(request, "add_item.HTML")
 	else:
 		return HttpResponseRedirect(reverse(index))
 
-
-# Done
+# Done (function)
 def add_item_submit(request):
 	if request.method == "POST":
 		poster = request.session["username"]
@@ -99,4 +107,7 @@ def logout(request):
 	return HttpResponseRedirect(reverse(index))
 
 def test(request):
-	return render(request, "test.HTML")
+	form = ImageForm()
+	return render(request, "test.HTML", {
+		"form":form
+		})
