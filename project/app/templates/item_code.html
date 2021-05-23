@@ -11,7 +11,7 @@
 		<a class="bold" style="color: white; position: absolute; top: 20px; text-decoration: none; display: block;" href="../../marketplace">2nd Hand</a>
 		<!-- <a href="../../add_item" class="sidebuttons" style="top: 80px; text-decoration: none; display: block; position: absolute;"><p style="margin-left: 30px; padding-top: 10px;">Add</p></a> -->
 		<a href="../../add_item" class="sidebuttons" style="top: 80px; text-decoration: none;"><p style="margin-left: 30px; padding-top: 15px;">Add</p></a>
-		<a href="../../mypostings" class="sidebuttons" style="top: 130px; text-decoration: none; display: block; position: absolute;"><p style="margin-left: 30px; padding-top: 10px;">Request</p></a>
+		<a href="../../mypostings" class="sidebuttons" style="top: 130px; text-decoration: none; display: block; position: absolute;"><p style="margin-left: 30px; padding-top: 10px;">My Postings</p></a>
 		<a href="/" class="sidebuttons" style="bottom: 20px; position: absolute; display: block; text-decoration: none;"><p style="margin-left: 30px; padding-top: 15px;">Logout</p></a>
 	</nav>
 	<main>
@@ -19,12 +19,12 @@
 		<div style="height: 30px;"></div>
 		<div style="display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap">
 			{% for image in images%}
-			<div style="width: 400px; height: 250px; background-image: url({{ image.image.url }}); background-size: cover;"></div>
+			<div style="width: 400px; height: 250px; background-image: url({{ image.image.url }}); background-size: cover; background-position: center;"></div>
 			
 		{% endfor %}
 		</div>
 		
-		
+		<p style="width: 75%; margin: auto; margin-top: 30px;"><strong>Location: </strong>{{ item.location }}<br><strong>Condition: </strong> {{ item.condition }}<br><strong>Posted by: </strong> {{ item.poster }}</p>
 		<p style="width: 75%; margin: auto; margin-top: 30px;">{{ item.description }}</p>
 
 		<div style="height: 50px;"></div>

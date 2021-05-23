@@ -78,6 +78,7 @@ main{
     display: block;
     border: solid 2px #e6e6e6;
     cursor: pointer;
+    
 }
 
 .items:hover{

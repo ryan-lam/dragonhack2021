@@ -161,7 +161,7 @@ def add_item_submit(request):
 
 		poster = request.session["username"]
 		title = request.POST["title"]
-		condition = request.POST["title"]
+		condition = request.POST["condition"]
 		location = request.POST["location"]
 		description = request.POST["description"]
 		images = request.FILES.getlist("images")
