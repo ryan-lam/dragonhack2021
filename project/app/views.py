@@ -90,6 +90,17 @@ def marketplace(request):
 		})
 
 
+def item_code(request, code):
+	code = code
+
+	item = Item.objects.get(code=code)
+	images = Image.objects.filter(code=code)
+
+	return render(request, "item_code.HTML", {
+		"item":item, "images":images
+		})
+
+
 
 
 # Add item webpage

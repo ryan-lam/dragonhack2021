@@ -13,6 +13,7 @@ urlpatterns = [
     path("logout", views.logout, name="logout"),
     path("add_item_submit", views.add_item_submit, name="add_item_submit"),
     path("add_item", views.add_item, name="add_item"),
+    path("item/<str:code>/", views.item_code, name="item_code"),
 
 
     # TESTING ONLY

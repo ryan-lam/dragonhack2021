@@ -1,0 +1,11 @@
+<!DOCTYPE>
+<html>
+	<body>
+		{% item.title %}
+		{% item.description %}
+
+		{% for image in images%}
+			<img src="{{ image.image.url }}">
+		{% endfor %}
+	</body>
+</html>
