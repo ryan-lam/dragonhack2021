@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 # from .models import Item, User
 from .models import Item, User, Image
@@ -9,10 +9,7 @@ import string
 
 # Generate random code
 def generate_code():
-	''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(12))
-
-class ImageForm(forms.Form):
-    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+	return ''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(12))
 
 
 
@@ -107,7 +104,22 @@ def logout(request):
 	return HttpResponseRedirect(reverse(index))
 
 def test(request):
-	form = ImageForm()
-	return render(request, "test.HTML", {
-		"form":form
-		})
+	return render(request, "test.HTML")
+
+
+
+def add_image(request):
+
+	if request.method == "POST":
+		data = request.POST
+		images = request.FILES.getlist("images")
+		code = generate_code()
+
+		print("data:", data)
+		print(code)
+
+		for image in images:
+			print("image:", image)
+			image = Image.objects.create(code=code, image=image)
+
+	return render(request, "index.HTML")

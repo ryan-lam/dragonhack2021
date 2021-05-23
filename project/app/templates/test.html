@@ -2,10 +2,11 @@
 <html>
 	<body>
 		TEST
-		<form>
-			{{ form }}
-			<br>
-			<button type="submit">Hi</button>
+		<form action="{% url 'add_image'%}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<input type="file" multiple name="images">
+			<button type="submit">Submit</button>
 		</form>
 
 

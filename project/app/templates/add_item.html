@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<title>Second Hand</title>
+</head>
+<body>
+	<nav class="sidebar" >
+		<h1 class="bold" style="color: white; position: absolute; top: 20px;">2nd Hand</h1>
+		<button class="sidebuttons" style="top: 80px;"><p style="margin-left: 30px;">Add</p></button>
+		<button class="sidebuttons" style="top: 130px;"><p style="margin-left: 30px;">Request</p></button>
+		<a href="/" class="sidebuttons" style="bottom: 20px; position: absolute; display: block; text-decoration: none;"><p style="margin-left: 30px; padding-top: 15px;">Logout</p></a>
+	</nav>
+	<main>
+		<h1 class="bold" style="color: black; text-align: center; margin: auto; margin-top: 20px;">Add an item!</h1>
+        <form class="jotform-form" action="/adding" method="POST" name="" style="margin-top: 40px;">
+            <div style="display: flex; margin: auto; width: 60%; justify-content:space-between">
+                <div style="width: 45%;">
+                    <label for="formGroupExampleInput" class="form-label">Name of Item <strong><span style="color: #ff0000">*</span></strong></label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Item Name" name="name" required>
+                </div>
+                <div style="width: 45%;">
+                    <label for="formGroupExampleInput" class="form-label">Location <strong><span style="color: #ff0000">*</span></strong></label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Location of Item" name="city" required>
+                </div>
+            </div>
+
+            <div style="display: flex; margin: auto; width: 60%; justify-content:space-between; margin-top: 20px;">
+                <div style="width: 45%;">
+                    <label for="formGroupExampleInput" class="form-label">Condition <strong><span style="color: #ff0000">*</span></strong></label>
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="1">Brand New</option>
+                        <option value="2">Open Box</option>
+                        <option value="3">Used</option>
+                        <option value="3">Not Working</option>
+                      </select>
+                </div>
+                <div style="width: 45%;">
+                    <label for="formGroupExampleInput" class="form-label">Picture of Item <strong><span style="color: #ff0000">*</span></strong></label>
+                    <input type="file" multiple name="images">
+                </div>
+            </div>
+
+           
+
+            
+            <div style="height:20px"></div>
+            <div style="width: 60%;margin: auto;">
+                <label for="exampleFormControlTextarea1" class="form-label">Item Description <strong><span style="color: #ff0000">*</span></strong></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Description of the Item..." name="description" required></textarea>
+            </div>
+            
+
+            <div style="height:20px"></div>
+            <p style="text-align: center;" >Items with a <strong><span style="color: #ff0000">*</span></strong> are required</p>
+            <button class="btn btn-lg"  type="submit" style="width: 60%; display: block; margin: auto; background-color: #63a4ff; color: white;">Submit</button>
+            
+        </form>
+
+		<div style="height: 50px;"></div>
+	</main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
