@@ -18,30 +18,34 @@
 
 <div class="container" id="container">
 
+	<!-- SIGN UP -->
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="{% url 'signup' %}" method="POST">
 			{% csrf_token %}
 			<h1 style="padding-bottom: 20px;">Start Here!</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" name="name" placeholder="Name" required/>
+			<input type="text" name="username" placeholder="Username" required/>
+			<input type="email" name="email" placeholder="Email" required/>
+			<input type="password" name="password" placeholder="Password" required/>
 			<div style="height: 10px;"></div>
 			<button class="actual">Sign Up</button>
 		</form>
 	</div>
 
+	<!-- SIGN IN -->
 	<div class="form-container sign-in-container">
 		<form action="{% url 'signin'%}" method="POST">
 			{% csrf_token %}
 			<h1>Welcome Back!</h1>	
-			<input type="text" name="username" placeholder="Username" />
-			<input type="password" name="password" placeholder="Password"/>
+			<input type="text" name="username" placeholder="Username" required/>
+			<input type="password" name="password" placeholder="Password" required/>
 			<!-- <a href="#">Forgot your password?</a> -->
 			<div style="height: 10px;"></div>
 			<button class="actual">Sign In</button>
 		</form>
 	</div>
 
+	<!-- TRANSACTION -->
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">

@@ -15,6 +15,7 @@ def generate_code():
 def index(request):
 	return render(request, "index.HTML")
 
+# Function to sign in
 def signin(request):
 	if request.method == "POST":
 		username = request.POST["username"]
@@ -25,15 +26,38 @@ def signin(request):
 			request.session["username"] = user.username
 			request.session["name"] = user.name
 			# return HttpResponseRedirect(reverse(test))
-			return render(request, "marketplace.html")
+			return HttpResponseRedirect(reverse(marketplace))
+		else:
+			return render(request, "index.HTML")
+
+	else:
+		return render(request, "index.HTML")
+
+def signup(request):
+	if request.method == "POST":
+		username = request.POST["username"]
+		password = request.POST["password"]
+		name = request.POST["name"]
+		email = request.POST["email"]
+
+		if not User.objects.filter(username=username).exists():
+			new_user = User(username=username, password=password, name=name, email=email)
+			new_user.save()
+			request.session["username"] = username
+			request.session["name"] = name
+			# return HttpResponseRedirect(reverse(test))
+			return HttpResponseRedirect(reverse(marketplace))
+		else:
+			return render(request, "index.HTML")
 
 	else:
 		return render(request, "index.HTML")
 
 
 
+
 def marketplace(request):
-	items = Item.objects.all.filter(status=True)
+	items = Item.objects.all().filter(status=True)
 	return render(request, "marketplace.HTML", {
 		"items":items
 		})
