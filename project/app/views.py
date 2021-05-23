@@ -63,9 +63,30 @@ def signup(request):
 
 
 def marketplace(request):
-	items = Item.objects.all().filter(status=True)
+	itemdb = Item.objects.filter(status=True)
+	codes = []
+
+	items = []
+	for item in itemdb:
+		if item.code not in items:
+			items.append(item)
+		else:
+			pass
+
+	db = []
+	for item in itemdb:
+		code = item.code
+		img = Image.objects.filter(code=code).first()
+		db.append([item, img])
+	print(db)
+
+	images = Image.objects.values("code").distinct()
+	n = range(len(items))
+	imgdb = Image.objects.all()
+	print(imgdb)
+
 	return render(request, "marketplace.HTML", {
-		"items":items
+		"items":items, "images":images, "n":n, "imgdb":imgdb, "db":db
 		})
 
 

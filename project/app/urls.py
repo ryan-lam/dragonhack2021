@@ -11,8 +11,13 @@ urlpatterns = [
     path("add_item", views.add_item, name="add_item"),
     path("add_item_submit", views.add_item_submit, name="add_item_submit"),
     path("logout", views.logout, name="logout"),
+    path("add_item_submit", views.add_item_submit, name="add_item_submit"),
+    path("add_item", views.add_item, name="add_item"),
+
 
     # TESTING ONLY
     path("test", views.test, name="test"),
-    path("add_image", views.add_image, name="add_image"),
+
 ]
+if settings.DEBUG:
+    urlpatterns += static("/media/images/", document_root=settings.MEDIA_ROOT)
