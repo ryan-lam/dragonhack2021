@@ -25,9 +25,9 @@ class Item(models.Model):
 
 # User profiles
 class User(models.Model):
-    username = CharField(max_length=32, null=False, blank=False)
-    password = CharField(max_length=32, null=False, blank=False)
-    name = CharField(max_length=32, null=False, blank=False)
+    username = models.CharField(max_length=32, null=False, blank=False)
+    password = models.CharField(max_length=32, null=False, blank=False)
+    name = models.CharField(max_length=32, null=False, blank=False)
 
     def __str__(self):
         return f"{self.name} : {self.username}"
