@@ -34,11 +34,11 @@ class User(models.Model):
 
 
 # Image database
-# class Image(models.Model):
-#     code = models.CharField(max_length=12)
-#     image = models.FileField(upload_to="images/")
-#     # <input type="file" name="images" multiple>
+class Image(models.Model):
+    code = models.CharField(max_length=12)
+    image = models.FileField(upload_to="images/")
+    # <input type="file" name="images" multiple>
 
-#     def __str__(self):
-#         return f"{self.code}"
+    def __str__(self):
+        return f"{self.code}"
 
