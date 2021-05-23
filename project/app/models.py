@@ -20,7 +20,7 @@ class Item(models.Model):
     description = models.CharField(max_length=2048)
 
     def __str__(self):
-        return f"{self.poster} : {self.status} : {self.title}"
+        return f"{self.code} : {self.status} : {self.title}"
 
 
 # User profile database

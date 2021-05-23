@@ -15,14 +15,12 @@
 	<main>
 		<h1 class="bold" style="color: black; text-align: center; margin: auto; margin-top: 20px;">Browse Through the Items that are Available!</h1>
 		<div class="itemslist">
-			{% for item in items %}
-				<div class="items">
-					<img src={{image.image.url}}>
-				</div>
+
+			{% for i in db %}
+				<p>{{ i.0.title }}</p>
+				<img src="{{ i.1.image.url }}"/>
 			{% endfor %}
-			<div class="items">1</div>
-			<div class="items">1</div>
-			<div class="items">1</div>
+			
 		</div>
 		<div style="height: 50px;"></div>
 	</main>
